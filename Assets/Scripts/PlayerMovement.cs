@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    protected float _moveSpeed = 5f;
-    public bool _isInMud;
-   [SerializeField] private float _mudSpeed;
-    [SerializeField] private GameObject _mud;
+    [SerializeField]protected float _moveSpeed = 5f;
+    
     public enum Players { PlayerOne, PlayerTwo, PlayerThree, PlayerFour }
     public Players PlayerType;
-
-    public GameObject player;
+    [SerializeField] protected float _mudSpeed;
+    
 
     string horizontalAxis;
     string verticalAxis;
 
     private void Awake()
     {
+       
         _mudSpeed = _moveSpeed - 2;
     }
 
@@ -56,25 +55,10 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis(horizontalAxis);
         float moveVertical = Input.GetAxis(verticalAxis);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
-        player.transform.Translate(movement);
+        transform.Translate(movement);
     }
     
-    private void OnTriggerEnter(Collider other)
-    {
-
-         if (other.gameObject.CompareTag("Mud"))
-         { 
-            _isInMud = true;  
-            if (_isInMud)
-            {
-               _moveSpeed = _mudSpeed;
-            }
-
-         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        
-    }
+    
+    
 
 }
