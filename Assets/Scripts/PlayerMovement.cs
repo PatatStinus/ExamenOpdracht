@@ -8,17 +8,14 @@ public class PlayerMovement : MonoBehaviour
     
     public enum Players { PlayerOne, PlayerTwo, PlayerThree, PlayerFour }
     public Players PlayerType;
-    [SerializeField] protected float _mudSpeed;
-    
+
+
+    public bool isOut;
 
     string horizontalAxis;
     string verticalAxis;
 
-    private void Awake()
-    {
-       
-        _mudSpeed = _moveSpeed - 2;
-    }
+   
 
     void Start()
     {
@@ -47,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovePlayer();   
+        MovePlayer(); 
+          
     }
 
     public void MovePlayer()
@@ -56,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         float moveVertical = Input.GetAxis(verticalAxis);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
         transform.Translate(movement);
+        
     }
     
     
