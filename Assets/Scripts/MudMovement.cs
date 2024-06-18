@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MudMovement : PlayerMovement
+public class MudMovement : MonoBehaviour
 {
-    public bool _isInMud;
-    private float _mudSpeed;
+    PlayerMovement pm;
+   
     // Start is called before the first frame update
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
-        _mudSpeed = _moveSpeed % 2;
+        ;
     }
 
     // Update is called once per frame
@@ -18,12 +22,6 @@ public class MudMovement : PlayerMovement
         
     }
 
-    public void OnCollisionEnter(Collider collider)
-    {
-        if (_isInMud)
-        {
-            _moveSpeed = _mudSpeed;
-        }
-    }
     
+
 }
