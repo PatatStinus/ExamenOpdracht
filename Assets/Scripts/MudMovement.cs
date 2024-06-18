@@ -28,9 +28,8 @@ public class MudMovement : PlayerMovement
             _isInMud = false;
         if (other.gameObject.CompareTag("Mud"))
         {
-           
-                _moveSpeed = 5f;
-            
+
+            _moveSpeed = 5f;
 
         }
     }
