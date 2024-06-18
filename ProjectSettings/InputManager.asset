@@ -329,10 +329,10 @@ InputManager:
     m_Name: Horizontal player3
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 4
-    positiveButton: 6
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: '[4]'
+    positiveButton: '[6]'
+    altNegativeButton: 4
+    altPositiveButton: 6
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -345,10 +345,10 @@ InputManager:
     m_Name: Vertical player3
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 2
-    positiveButton: 8
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: '[5]'
+    positiveButton: '[8]'
+    altNegativeButton: 2
+    altPositiveButton: 8
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
