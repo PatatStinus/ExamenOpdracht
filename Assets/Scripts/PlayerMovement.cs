@@ -17,37 +17,26 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerType == Players.PlayerOne)
         {
+            verticalAxis = "Vertical player1";
             horizontalAxis = "Horizontal player1";
         }
         else if(PlayerType == Players.PlayerTwo) 
         {
             horizontalAxis = "Horizontal player2";
-        }
-        else if (PlayerType == Players.PlayerThree)
-        {
-            horizontalAxis = "Horizontal player3";
-        }
-        else if (PlayerType == Players.PlayerFour) 
-        {
-            horizontalAxis = "Horizontal player4";
-        }
-       
-        if (PlayerType == Players.PlayerOne)
-        {
-            verticalAxis = "Vertical player1";
-        }
-        else if (PlayerType == Players.PlayerTwo)
-        {
             verticalAxis = "Vertical player2";
         }
         else if (PlayerType == Players.PlayerThree)
         {
+            horizontalAxis = "Horizontal player3";
             verticalAxis = "Vertical player3";
         }
-        else if (PlayerType == Players.PlayerFour)
+        else if (PlayerType == Players.PlayerFour) 
         {
             verticalAxis = "Vertical player4";
+            horizontalAxis = "Horizontal player4";
         }
+       
+       
 
     }
 
