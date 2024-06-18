@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovePlayer(); 
-          
+        if(Input.GetAxis(horizontalAxis) != 0 || Input.GetAxis(verticalAxis) != 0)
+            MovePlayer(); 
     }
 
     public void MovePlayer()
@@ -54,10 +54,12 @@ public class PlayerMovement : MonoBehaviour
         float moveVertical = Input.GetAxis(verticalAxis);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
         transform.Translate(movement);
-        
+
+        Quaternion targetRotation = Quaternion.LookRotation(transform.rotation * movement);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
     }
-    
-    
-    
+
+
+
 
 }
