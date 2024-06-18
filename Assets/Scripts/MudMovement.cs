@@ -2,26 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MudMovement : MonoBehaviour
-{
-    PlayerMovement pm;
+public class MudMovement : PlayerMovement
+{  
+    public bool _isInMud;
    
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        
-    }
-    void Start()
-    {
-        ;
-    }
+    [SerializeField] private GameObject _mud;
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        Debug.Log("test");
+            _isInMud = true;  
 
+         if (other.gameObject.CompareTag("Mud"))
+         { 
+            
+           
+               _moveSpeed = _mudSpeed;
+            
+
+         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+            _isInMud = false;
+        if (other.gameObject.CompareTag("Mud"))
+        {
+           
+                _moveSpeed = 5f;
+            
+
+        }
+    }
     
 
 }
