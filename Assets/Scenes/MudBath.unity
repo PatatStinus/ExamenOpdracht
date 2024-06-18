@@ -244,8 +244,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   PlayerType: 0
-  _mudSpeed: 0
+  isOut: 0
   _isInMud: 0
+  _mudSpeed: 2
   _mud: {fileID: 0}
 --- !u!54 &170703186
 Rigidbody:
@@ -256,8 +257,8 @@ Rigidbody:
   m_GameObject: {fileID: 170703179}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 100
+  m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -270,9 +271,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &437148191
 GameObject:
@@ -395,8 +396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   PlayerType: 2
-  _mudSpeed: 0
+  isOut: 0
   _isInMud: 0
+  _mudSpeed: 0
   _mud: {fileID: 0}
 --- !u!54 &437148198
 Rigidbody:
@@ -407,8 +409,8 @@ Rigidbody:
   m_GameObject: {fileID: 437148191}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 100
+  m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -421,9 +423,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &615457330
 GameObject:
@@ -652,8 +654,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   PlayerType: 1
-  _mudSpeed: 0
+  isOut: 0
   _isInMud: 0
+  _mudSpeed: 0
   _mud: {fileID: 0}
 --- !u!54 &615702247
 Rigidbody:
@@ -664,8 +667,8 @@ Rigidbody:
   m_GameObject: {fileID: 615702240}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 100
+  m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -678,9 +681,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &717615014
 GameObject:
@@ -1094,8 +1097,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   PlayerType: 3
-  _mudSpeed: 0
+  isOut: 0
   _isInMud: 0
+  _mudSpeed: 0
   _mud: {fileID: 0}
 --- !u!54 &1654314170
 Rigidbody:
@@ -1106,8 +1110,8 @@ Rigidbody:
   m_GameObject: {fileID: 1654314163}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 100
+  m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1120,9 +1124,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
