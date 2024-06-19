@@ -13,6 +13,8 @@ public class MinigameParent : MonoBehaviour
     [SerializeField] protected Text _timerText;
     [SerializeField] protected List<Text> _scorePlayersText;
 
+    public SaveScores SaveData;
+
     private void Awake()
     {
         Score = new int[4];
@@ -20,7 +22,9 @@ public class MinigameParent : MonoBehaviour
 
     protected virtual void Update()
     {
-        _timer -= Time.deltaTime;
+        if (!_gameEnded)
+            _timer -= Time.deltaTime;
+        
         if(_timer < 0)
             EndGame();
 
@@ -34,9 +38,47 @@ public class MinigameParent : MonoBehaviour
     {
         if (_gameEnded)
             return;
-
+        
         _gameEnded = true;
-        Debug.Log("Game Ended");
+        
+        //Check welke minigame er nu gespeeld wordt.
+        if(this as MudBathManager)
+        {
+            for(int j = 0; j < Players.Count; j++)
+            {
+                int index = 0;
+                for(int i = 0;  i < SaveData.MudBathScores.score.Count; i++)
+                {
+                    if (Score[j] > SaveData.MudBathScores.score[i])
+                    {
+                        index = i;
+                        break;
+                    }
+                    if (i == 9)
+                        index = 10;
+                    if (i == SaveData.MudBathScores.score.Count - 1)
+                        index = i + 1;
+                }
+
+
+                if (index >= 10) return;
+
+                SaveData.MudBathScores.score.Insert(index, Score[j]);
+                SaveData.MudBathScores.name.Insert(index, "PlaceHolder");
+                SaveData.SaveToJson();
+            }
+        }
+
+
+        /*else if ()
+        {
+
+        }
+        else if ()
+        {
+
+        }*/
+        
         //TODO: Geef game review en stuur iedereen terug naar kaart pak scene, tenzij alle kaarten al gepakt zijn.
     }
 

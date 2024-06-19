@@ -1609,6 +1609,84 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!1 &1686990412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1686990414}
+  - component: {fileID: 1686990413}
+  - component: {fileID: 1686990415}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1686990413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686990412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ff66e6ab01acf47bbc439de2b916eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Players:
+  - {fileID: 170703185}
+  - {fileID: 615702246}
+  - {fileID: 437148197}
+  - {fileID: 1654314169}
+  _timerText: {fileID: 1747000851}
+  _scorePlayersText:
+  - {fileID: 1284936121}
+  - {fileID: 749196198}
+  - {fileID: 887055579}
+  - {fileID: 526341980}
+  SaveData: {fileID: 1686990415}
+--- !u!4 &1686990414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686990412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 969.9352, y: 458.45312, z: -8.235164}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686990415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686990412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb1765f5eddae34da41abfd9bc222ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MudBathScores:
+    name: []
+    score: []
+  RunAndCatchScores:
+    name: []
+    score: []
+  AnimalBoxingScores:
+    name: []
+    score: []
 --- !u!1 &1747000849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1757,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: Time
 --- !u!222 &1747000852
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1798,6 +1876,7 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1686990414}
   - {fileID: 808734890}
   - {fileID: 717615016}
   - {fileID: 615457334}
