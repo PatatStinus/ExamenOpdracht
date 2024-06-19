@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     
     public bool isOut;
 
-    string horizontalAxis;
-    string verticalAxis;
+    protected string horizontalAxis;
+    protected string verticalAxis;
 
    
 
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer(); 
     }
 
-    public void MovePlayer()
+    public virtual void MovePlayer()
     {
         float moveHorizontal = Input.GetAxis(horizontalAxis);
         float moveVertical = Input.GetAxis(verticalAxis);
