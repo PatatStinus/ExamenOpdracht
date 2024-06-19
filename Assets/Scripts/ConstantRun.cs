@@ -44,9 +44,9 @@ public class ConstantRun : PlayerMovement
         float moveVertical = Input.GetAxis(verticalAxis);
         if (isRunning) moveVertical = 0;
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
-        transform.Translate(movement);
+        transform.Translate(movement, Space.World);
 
-        Quaternion targetRotation = Quaternion.LookRotation(transform.rotation * movement);
+        Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 3f * Time.deltaTime);
     }
 
