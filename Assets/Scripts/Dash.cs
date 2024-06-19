@@ -54,11 +54,6 @@ public class Dash: PlayerMovement
         float startTime = 0;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.zero, out hit, playerLayer))
-        {
-            Debug.Log("The ray hit: " + hit.transform.name);
-            hit.transform.GetComponent<PlayerMovement>().isOut = true;
-        }
         while ( startTime <= dashDuration)
         {
             startTime += Time.deltaTime;
@@ -66,10 +61,15 @@ public class Dash: PlayerMovement
             transform.position += dashDirection * dashSpeed * Time.deltaTime;
             yield return null; 
         }
+        _HasDashed = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-       
+        if (_HasDashed && collision.gameObject.TryGetComponent(out PlayerMovement hitPlayer))
+        {
+            Debug.Log("The ray hit: " + collision.transform.name);
+            hitPlayer.isOut = true;
+        }
     }
 }

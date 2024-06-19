@@ -6,10 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]protected float _moveSpeed = 5f;
     
+
+
     public enum Players { PlayerOne, PlayerTwo, PlayerThree, PlayerFour }
     public Players PlayerType;
 
-
+    
     public bool isOut;
 
     string horizontalAxis;
@@ -56,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(movement);
 
         Quaternion targetRotation = Quaternion.LookRotation(transform.rotation * movement);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 3f * Time.deltaTime);
     }
 
 
