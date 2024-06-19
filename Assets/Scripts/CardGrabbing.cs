@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CardGrabbing : MonoBehaviour
 {
@@ -9,8 +10,15 @@ public class CardGrabbing : MonoBehaviour
     [SerializeField] private GameObject _cursor;
     [SerializeField] private LayerMask _cardLayer;
     [SerializeField] private Transform _desiredCardPos;
+    [SerializeField] private List<Text> _scoreText;
     private int _sceneIndex;
 
+    private void Awake()
+    {
+        Cursor.visible = false;
+        for (int i = 0; i < _scoreText.Count; i++)
+            _scoreText[i].text = TotalScores.Scores[i].ToString();
+    }
 
     private void Update()
     {
@@ -47,7 +55,7 @@ public class CardGrabbing : MonoBehaviour
                 //Check welke kaarttype opgepakt is.
                 Card card = hit.transform.GetComponent<Card>();
                 if (card.CardType == Card.Cards.MudRunner)
-                    _sceneIndex = 1;
+                    _sceneIndex = 2;
                 else if (card.CardType == Card.Cards.CatchAndRun)
                     _sceneIndex = 3;
                 else if (card.CardType == Card.Cards.AnimalBoxing)

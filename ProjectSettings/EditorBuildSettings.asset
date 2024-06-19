@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Stijn.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: b7723c43e38b1ad4e9d3eeaeb55bb1b3
+  - enabled: 1
+    path: Assets/Scenes/CardGrabbing.unity
     guid: 3603e7cfac2c5ff478138767f4f3e1d0
   - enabled: 1
     path: Assets/Scenes/MudBath.unity

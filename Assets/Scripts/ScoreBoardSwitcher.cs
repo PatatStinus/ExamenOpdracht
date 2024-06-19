@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,6 +101,7 @@ public class ScoreBoardSwitcher : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        Array.Clear(TotalScores.Scores, 0, TotalScores.Scores.Length);
     }
 
     public void QuitGame()

@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MinigameParent : MonoBehaviour
@@ -22,8 +24,9 @@ public class MinigameParent : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!_gameEnded)
-            _timer -= Time.deltaTime;
+        if (_gameEnded) return;
+
+        _timer -= Time.deltaTime;
         
         if(_timer < 0)
             EndGame();
@@ -40,6 +43,10 @@ public class MinigameParent : MonoBehaviour
             return;
         
         _gameEnded = true;
+
+        //Add scores to total
+        StartCoroutine(AddScores());
+
         
         //Check welke minigame er nu gespeeld wordt.
         if(this as MudBathManager)
@@ -80,6 +87,50 @@ public class MinigameParent : MonoBehaviour
         }*/
         
         //TODO: Geef game review en stuur iedereen terug naar kaart pak scene, tenzij alle kaarten al gepakt zijn.
+    }
+
+    private IEnumerator AddScores()
+    {
+        float time = 0;
+
+        for (int i = 0; i < _scorePlayersText.Count; i++)
+            _scorePlayersText[i].text = TotalScores.Scores[i].ToString();
+
+        //Moet zo geassigned worden vanwege array gedoe
+        int[] orgScores = new int[4];
+
+        int score1 = TotalScores.Scores[0];
+        int score2 = TotalScores.Scores[1];
+        int score3 = TotalScores.Scores[2];
+        int score4 = TotalScores.Scores[3];
+
+        orgScores[0] = score1;
+        orgScores[1] = score2;
+        orgScores[2] = score3;
+        orgScores[3] = score4;
+
+        yield return new WaitForSeconds(1);
+
+        while (time <= 3)
+        {
+            for(int i = 0; i < _scorePlayersText.Count; i++)
+            {
+                _scorePlayersText[i].text = TotalScores.Scores[i].ToString();
+                TotalScores.Scores[i] = orgScores[i] + (int)(Score[i] * (time / 3f));
+            }
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        for (int i = 0; i < _scorePlayersText.Count; i++)
+        {
+            TotalScores.Scores[i] = orgScores[i] + Score[i];
+            _scorePlayersText[i].text = TotalScores.Scores[i].ToString();
+        }
+
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(1);
     }
 
     private void SaveGame() 
