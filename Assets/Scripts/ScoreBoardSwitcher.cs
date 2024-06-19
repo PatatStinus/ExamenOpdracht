@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreBoardSwitcher : MonoBehaviour
@@ -94,6 +95,16 @@ public class ScoreBoardSwitcher : MonoBehaviour
                 scores = Data.AnimalBoxingScores.score;
                 break;
         }
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
 
