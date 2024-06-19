@@ -9,6 +9,14 @@ public class Dash: PlayerMovement
     [SerializeField]private LayerMask playerLayer;
     public float dashSpeed = 20f;        
     public float dashDuration = 0.2f;
+
+    private AnimalBoxingManager _manager;
+
+    private void Awake()
+    {
+        _manager = FindObjectOfType<AnimalBoxingManager>();
+    }
+
     private void Update()
     {
         if (PlayerType == Players.PlayerOne)
@@ -67,9 +75,6 @@ public class Dash: PlayerMovement
     private void OnCollisionEnter(Collision collision)
     {
         if (_HasDashed && collision.gameObject.TryGetComponent(out PlayerMovement hitPlayer))
-        {
-            Debug.Log("The ray hit: " + collision.transform.name);
-            hitPlayer.isOut = true;
-        }
+            _manager.PlayerHit(this, hitPlayer);
     }
 }

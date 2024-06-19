@@ -75,16 +75,38 @@ public class MinigameParent : MonoBehaviour
                 SaveData.SaveToJson();
             }
         }
+        else if (this as AnimalBoxingManager)
+        {
+            for (int j = 0; j < Players.Count; j++)
+            {
+                int index = 0;
+                for (int i = 0; i < SaveData.AnimalBoxingScores.score.Count; i++)
+                {
+                    if (Score[j] > SaveData.AnimalBoxingScores.score[i])
+                    {
+                        index = i;
+                        break;
+                    }
+                    if (i == 9)
+                        index = 10;
+                    if (i == SaveData.AnimalBoxingScores.score.Count - 1)
+                        index = i + 1;
+                }
 
 
+                if (index >= 10) return;
+
+                SaveData.AnimalBoxingScores.score.Insert(index, Score[j]);
+                SaveData.AnimalBoxingScores.name.Insert(index, "PlaceHolder");
+                SaveData.SaveToJson();
+            }
+        }
         /*else if ()
         {
 
-        }
-        else if ()
-        {
-
         }*/
+
+
         
         //TODO: Geef game review en stuur iedereen terug naar kaart pak scene, tenzij alle kaarten al gepakt zijn.
     }
