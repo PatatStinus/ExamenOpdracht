@@ -8,7 +8,7 @@ public class ApplesScore : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-            if (collision.gameObject)
+            if (collision.gameObject.tag == "Player")
             {
                 // score te voegen
                 Destroy(gameObject); 

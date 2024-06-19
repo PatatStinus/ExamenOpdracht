@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class CatchApples : MonoBehaviour
 {
-    public GameObject Apples;
-    public GameObject Applesspawner;
+    
+    PlayerMovement pm;
     // Start is called before the first frame update
-   
-    private void OnCollisionEnter(Collision collision)
+    
+    private void Awake()
     {
-        if (collision.gameObject)
-        {
-            if (Applesspawner)
-            {
-                Instantiate(Apples);
-
-            }
-            
-        }
+        pm = GetComponent<PlayerMovement>();
     }
+   
 }

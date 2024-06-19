@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mud
   - wall
+  - boom
   layers:
   - Default
   - TransparentFX
