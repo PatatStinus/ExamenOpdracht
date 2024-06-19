@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MudBathManager : MinigameParent
 {
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         //Change scores
         for (int i = 0; i < Players.Count; i++)
         {
