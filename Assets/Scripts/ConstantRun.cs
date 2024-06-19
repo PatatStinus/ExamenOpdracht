@@ -24,6 +24,18 @@ public class ConstantRun : PlayerMovement
         {
             StartCoroutine(Run());
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            StartCoroutine(Run());
+        }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            StartCoroutine(Run());
+        }
+        if (Input.GetButtonDown("Fire4"))
+        {
+            StartCoroutine(Run());
+        }
 
     }
     public override void MovePlayer()

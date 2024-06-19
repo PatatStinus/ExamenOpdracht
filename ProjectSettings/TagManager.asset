@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mud
+  - wall
   layers:
   - Default
   - TransparentFX
