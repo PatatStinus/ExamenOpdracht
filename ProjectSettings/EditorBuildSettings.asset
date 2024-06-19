@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Stijn.unity
+    guid: 3603e7cfac2c5ff478138767f4f3e1d0
+  - enabled: 1
+    path: Assets/Scenes/MudBath.unity
+    guid: 7c78f27d4e6c9a9448a6e17fc2c59fa8
   m_configObjects: {}

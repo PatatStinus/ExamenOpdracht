@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardGrabbing : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class CardGrabbing : MonoBehaviour
                 //Check welke kaarttype opgepakt is.
                 Card card = hit.transform.GetComponent<Card>();
                 if (card.CardType == Card.Cards.MudRunner)
-                    _sceneIndex = 2;
+                    _sceneIndex = 1;
                 else if (card.CardType == Card.Cards.CatchAndRun)
                     _sceneIndex = 3;
                 else if (card.CardType == Card.Cards.AnimalBoxing)
@@ -71,5 +72,13 @@ public class CardGrabbing : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+
+        time = 0;
+        while (time < 2) 
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        SceneManager.LoadScene(_sceneIndex);
     }
 }

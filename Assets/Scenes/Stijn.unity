@@ -793,6 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1560915896}
   - component: {fileID: 1560915897}
+  - component: {fileID: 1560915898}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -833,6 +834,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _desiredCardPos: {fileID: 1517814212}
+--- !u!114 &1560915898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560915895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb1765f5eddae34da41abfd9bc222ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MudBathScores:
+    name: []
+    score: []
+  RunAndCatchScores:
+    name: []
+    score: []
+  AnimalBoxingScores:
+    name: []
+    score: []
 --- !u!1 &1580013819
 GameObject:
   m_ObjectHideFlags: 0
