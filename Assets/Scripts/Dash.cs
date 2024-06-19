@@ -53,11 +53,11 @@ public class Dash: PlayerMovement
         Vector3 dashDirection = transform.forward;
         float startTime = 0;
 
-        RaycastHit hit;
+        //in deze loop word een hoevang de dash duurd
         while ( startTime <= dashDuration)
         {
             startTime += Time.deltaTime;
-            // Move de player in de dash direction.
+            // Move de player in de dash richting.
             transform.position += dashDirection * dashSpeed * Time.deltaTime;
             yield return null; 
         }
