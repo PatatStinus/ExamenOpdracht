@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject _endScreen;
+
+    public void OpenEndScreen()
+    {
+        //Show who won first
+        //After tapping left, show extra stats
+        //MAYBE: Another tap show leaderboards.
+        //Last slide, prompt another tap to go back to the main menu.
+    }
 }
 
 public static class Stats

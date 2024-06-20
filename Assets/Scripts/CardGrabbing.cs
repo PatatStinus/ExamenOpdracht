@@ -12,9 +12,10 @@ public class CardGrabbing : MonoBehaviour
     [SerializeField] private Transform _desiredCardPos;
     [SerializeField] private List<Text> _scoreText;
     [SerializeField] private List<Card> _cards;
+    [SerializeField] private EndGame _endGame;
     private int _sceneIndex;
     public static List<bool> PlayedGames = new List<bool>();
-    private bool _endGame = true;
+    private bool _endingGame = true;
 
     private void Awake()
     {
@@ -51,12 +52,13 @@ public class CardGrabbing : MonoBehaviour
 
             //Als alle games gespeeld zijn, eindig de game
             if (!PlayedGames[i])
-                _endGame = false;
+                _endingGame = false;
         }
 
-        if(_endGame)
+        if(_endingGame)
         {
             //End de game
+            _endGame.OpenEndScreen();
         }
     }
 

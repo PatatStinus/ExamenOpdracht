@@ -22,4 +22,24 @@ public class MudBathManager : MinigameParent
                 EndGame();
         }
     }
+
+    protected override void EndGame()
+    {
+        base.EndGame();
+
+        int longestInMud = 0;
+        float longestTimeInMud = (Players[0] as MudMovement).TimeInMud;
+        
+        for (int i = 1; i < Players.Count; i++)
+        {
+            if ((Players[i] as MudMovement).TimeInMud > (Players[longestInMud] as MudMovement).TimeInMud)
+            {
+                longestInMud = i;
+                longestTimeInMud = (Players[i] as MudMovement).TimeInMud;
+            }
+        }
+
+        Stats.PlayerMostInMud = longestInMud;
+        Stats.TimeInMud = longestTimeInMud;
+    }
 }

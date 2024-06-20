@@ -47,9 +47,22 @@ public class MinigameParent : MonoBehaviour
         //Add scores to total
         StartCoroutine(AddScores());
 
-        
+        int winningPlayer = 0;
+        int losingPlayer = 0;
+
+        for (int i = 1; i < Players.Count; i++)
+        {
+            if (Score[i] > Score[winningPlayer])
+                winningPlayer = i;
+            if (Score[i] < Score[losingPlayer])
+                losingPlayer = i;
+        }
+
+        Stats.MostLostPlayers[losingPlayer]++;
+        Stats.MostWonPlayers[winningPlayer]++;
+
         //Check welke minigame er nu gespeeld wordt.
-        if(this as MudBathManager)
+        if (this as MudBathManager)
         {
             for(int j = 0; j < Players.Count; j++)
             {
