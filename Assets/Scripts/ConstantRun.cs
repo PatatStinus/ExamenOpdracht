@@ -18,7 +18,6 @@ public class ConstantRun : PlayerMovement
         if (collision.gameObject.tag == "boom")  
         {
            // Stop met rennen als je een muur raakt
-            _moveSpeed = 5;
         }
         if (collision.gameObject.tag == "boom" && isRunning == true)
         {
@@ -48,11 +47,13 @@ public class ConstantRun : PlayerMovement
                 }
             // Loop to instantiate the determined number of apples
             for (int i = 0; i < applesToInstantiate; i++)
+                
                 {
                     GameObject apple = Instantiate(Apples, collision.gameObject.transform);
                     apple.transform.localPosition = spawnpoints[i];
                 }
                 isRunning = false;  
+            _moveSpeed = 5;
 
            
 
@@ -100,12 +101,14 @@ public class ConstantRun : PlayerMovement
     {
         float moveHorizontal = Input.GetAxis(horizontalAxis);
         float moveVertical = Input.GetAxis(verticalAxis);
-        if (isRunning) moveVertical = 0;
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
-        transform.Translate(movement, Space.World);
 
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
         Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 3f * Time.deltaTime);
+
+        if (isRunning) moveVertical = 0;
+        movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
+        transform.Translate(movement, Space.World);
     }
 
     IEnumerator Run()
