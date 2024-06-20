@@ -55,22 +55,39 @@ public class ConstantRun : PlayerMovement
     
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            StartCoroutine(Run());
+        if (PlayerType == Players.PlayerOne)
+        { 
+            if (Input.GetButtonDown("Fire1"))
+            {
+                StartCoroutine(Run());
+            }
+
         }
-        if (Input.GetButtonDown("Fire2"))
-        {
-            StartCoroutine(Run());
+        if (PlayerType == Players.PlayerTwo)
+        {   
+            if (Input.GetButtonDown("Fire2"))
+            {
+                StartCoroutine(Run());
+            }
+
         }
-        if (Input.GetButtonDown("Fire3"))
+        if (PlayerType == Players.PlayerThree)
         {
-            StartCoroutine(Run());
+             if (Input.GetButtonDown("Fire3"))
+             {
+                 StartCoroutine(Run());
+             }
+
         }
-        if (Input.GetButtonDown("Fire4"))
-        {
-            StartCoroutine(Run());
+        if (PlayerType == Players.PlayerFour)
+        {     
+            if (Input.GetButtonDown("Fire4"))
+            {
+                 StartCoroutine(Run());
+            }
+
         }
+       
 
     }
     public override void MovePlayer()
