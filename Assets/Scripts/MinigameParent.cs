@@ -114,14 +114,32 @@ public class MinigameParent : MonoBehaviour
                 SaveData.SaveToJson();
             }
         }
-        /*else if ()
+        else if (this as CatchAndRunManager)
         {
+            for (int j = 0; j < Players.Count; j++)
+            {
+                int index = 0;
+                for (int i = 0; i < SaveData.RunAndCatchScores.score.Count; i++)
+                {
+                    if (Score[j] > SaveData.RunAndCatchScores.score[i])
+                    {
+                        index = i;
+                        break;
+                    }
+                    if (i == 9)
+                        index = 10;
+                    if (i == SaveData.RunAndCatchScores.score.Count - 1)
+                        index = i + 1;
+                }
 
-        }*/
 
+                if (index >= 10) return;
 
-        
-        //TODO: Geef game review en stuur iedereen terug naar kaart pak scene, tenzij alle kaarten al gepakt zijn.
+                SaveData.RunAndCatchScores.score.Insert(index, Score[j]);
+                SaveData.RunAndCatchScores.name.Insert(index, "PlaceHolder");
+                SaveData.SaveToJson();
+            }
+        }
     }
 
     private IEnumerator AddScores()
