@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static ScoreBoardSwitcher;
 
 public class EndGame : MonoBehaviour
 {
@@ -71,8 +71,24 @@ public class EndGame : MonoBehaviour
             _activeScreenIndex--;
             _screens[_activeScreenIndex].SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && _activeScreenIndex != 1)
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            if (_activeScreenIndex == 1)
+            {
+                //TO MAIN MENU, clear all stats.
+                CardGrabbing.PlayedGames.Clear();
+                Stats.MostLostPlayers.Clear();
+                Stats.MostWonPlayers.Clear();
+                Stats.PlayerMostInMud = 0;
+                Stats.TimeInMud = 0;
+                Stats.DefendedAmount = 0;
+                Stats.SpeedTreeHit = 0;
+                Stats.PlayerHardestTree = 0;
+                Stats.PlayerMostDefended = 0;
+                Cursor.visible = true;
+                SceneManager.LoadScene(0);
+                return;
+            }
             _screens[_activeScreenIndex].SetActive(false);
             _activeScreenIndex++;
             _screens[_activeScreenIndex].SetActive(true);
