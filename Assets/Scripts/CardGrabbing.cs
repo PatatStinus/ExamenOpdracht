@@ -17,7 +17,7 @@ public class CardGrabbing : MonoBehaviour
     public static List<bool> PlayedGames = new List<bool>();
     private bool _endingGame = true;
 
-    private void Awake()
+    private void Start()
     {
         Cursor.visible = false;
         for (int i = 0; i < _scoreText.Count; i++)
