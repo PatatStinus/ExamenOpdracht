@@ -14,6 +14,7 @@ public class EndGame : MonoBehaviour
     [SerializeField] private List<GameObject> _screens = new List<GameObject>();
     [SerializeField] private List<Text> _playerNameStats = new List<Text>();
     [SerializeField] private List<Text> _playerScoreStats = new List<Text>();
+    [SerializeField] private List<string> _playerNames = new List<string>();
 
     private void Awake()
     {
@@ -40,8 +41,23 @@ public class EndGame : MonoBehaviour
 
         scores.Sort();
         scores.Reverse();
+        List<string> names = new List<string>();
+
+
+        for (int j= 0; j < scores.Count; j++)
+        {
+            for (int i = 0; i < TotalScores.Scores.Length; i++)
+            {
+                if (scores[j] == TotalScores.Scores[i])
+                    names.Add(_playerNames[i]);
+            }
+        }
+
         for (int i = 0; i < _winningPlayersScoreText.Count; i++)
+        {
+            _winningPlayersText[i].text = names[i];
             _winningPlayersScoreText[i].text = scores[i].ToString();
+        }
 
         int indexMostWon = 0;
         int indexMostLost = 0;
@@ -55,10 +71,15 @@ public class EndGame : MonoBehaviour
         }
 
         _playerScoreStats[0].text = Stats.MostWonPlayers[indexMostWon].ToString();
+        _playerNameStats[0].text = _playerNames[indexMostWon];
         _playerScoreStats[1].text = Stats.MostLostPlayers[indexMostLost].ToString();
+        _playerNameStats[1].text = _playerNames[indexMostLost];
         _playerScoreStats[2].text = Stats.TimeInMud.ToString("0.00");
+        _playerNameStats[2].text = _playerNames[Stats.PlayerMostInMud];
         _playerScoreStats[3].text = Stats.DefendedAmount.ToString();
+        _playerNameStats[3].text = _playerNames[Stats.PlayerMostDefended];
         _playerScoreStats[4].text = Stats.SpeedTreeHit.ToString("0.00");
+        _playerNameStats[4].text = _playerNames[Stats.PlayerHardestTree];
     }
 
     private void Update()

@@ -3104,6 +3104,11 @@ MonoBehaviour:
   - {fileID: 1400619309}
   - {fileID: 473747792}
   - {fileID: 1160912109}
+  _playerNames:
+  - Bull
+  - Cow
+  - Goat
+  - Horse
 --- !u!1 &1578120383
 GameObject:
   m_ObjectHideFlags: 0
