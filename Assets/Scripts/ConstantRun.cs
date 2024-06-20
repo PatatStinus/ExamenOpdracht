@@ -8,9 +8,8 @@ public class ConstantRun : PlayerMovement
     [SerializeField] private float time;
     [SerializeField] private bool _constantRunIsPressed;
     private bool isRunning;
-    public GameObject boom;
     public GameObject Apples;
-    public GameObject ApplesSpawner;
+    
     [SerializeField] private List <Vector3> spawnpoints = new List<Vector3>();
 
     void OnCollisionEnter(Collision collision)

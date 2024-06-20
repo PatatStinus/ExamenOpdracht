@@ -20,6 +20,7 @@ public class CatchAndRunManager : MinigameParent
     }
     public void CatchApples(PlayerMovement player)
     {
+        //als een player een apple pakt maak score +10
         for (int i = 0; i < Players.Count; i++)
         {
             if (Players[i] == player)
