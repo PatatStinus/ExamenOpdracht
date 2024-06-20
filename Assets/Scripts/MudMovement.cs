@@ -24,7 +24,7 @@ public class MudMovement : PlayerMovement
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Mud"))
-            _timeInMud += Time.deltaTime;
+            _timeInMud += Time.fixedDeltaTime;
     }
 
     private void OnTriggerExit(Collider other)

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AnimalBoxing.unity
     guid: f496ba7ca73258441b28098615b81f31
+  - enabled: 1
+    path: Assets/Scenes/ConstantRun.unity
+    guid: 269b704dedd5aa6488433eabbe4d1c1c
   m_configObjects: {}
