@@ -28,19 +28,26 @@ public class ConstantRun : PlayerMovement
                 // Determine number of apples to instantiate based on _moveSpeed
                 if (_moveSpeed >= 13)
                 {
+                    applesToInstantiate = 5;
+                }
+                else if (_moveSpeed >= 11)
+                {
+                    applesToInstantiate = 4;
+                }
+                else if (_moveSpeed >= 9)
+                {
                     applesToInstantiate = 3;
                 }
-                else if (_moveSpeed >= 8)
+                else if (_moveSpeed >= 7)
                 {
                     applesToInstantiate = 2;
                 }
-                else if (_moveSpeed >= 3)
+                else if (_moveSpeed >= 5)
                 {
                     applesToInstantiate = 1;
                 }
-
-                // Loop to instantiate the determined number of apples
-                for (int i = 0; i < applesToInstantiate; i++)
+            // Loop to instantiate the determined number of apples
+            for (int i = 0; i < applesToInstantiate; i++)
                 {
                     GameObject apple = Instantiate(Apples, collision.gameObject.transform);
                     apple.transform.localPosition = spawnpoints[i];
