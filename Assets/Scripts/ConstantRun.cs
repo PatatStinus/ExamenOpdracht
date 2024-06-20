@@ -8,13 +8,48 @@ public class ConstantRun : PlayerMovement
     [SerializeField] private float time;
     [SerializeField] private bool _constantRunIsPressed;
     private bool isRunning;
+    public GameObject boom;
+    public GameObject Apples;
+    public GameObject ApplesSpawner;
+    [SerializeField] private List <Vector3> spawnpoints = new List<Vector3>();
+
     void OnCollisionEnter(Collision collision)
     {
         // Controleer of de botsing met een muur is
-        if (collision.gameObject.tag == "Wall")  
+        if (collision.gameObject.tag == "boom")  
         {
-            isRunning = false;  // Stop met rennen als je een muur raakt
+           // Stop met rennen als je een muur raakt
             _moveSpeed = 5;
+        }
+        if (collision.gameObject.tag == "boom" && isRunning == true)
+        {
+           
+             int applesToInstantiate = 0;
+
+                // Determine number of apples to instantiate based on _moveSpeed
+                if (_moveSpeed >= 13)
+                {
+                    applesToInstantiate = 3;
+                }
+                else if (_moveSpeed >= 8)
+                {
+                    applesToInstantiate = 2;
+                }
+                else if (_moveSpeed >= 3)
+                {
+                    applesToInstantiate = 1;
+                }
+
+                // Loop to instantiate the determined number of apples
+                for (int i = 0; i < applesToInstantiate; i++)
+                {
+                    GameObject apple = Instantiate(Apples, collision.gameObject.transform);
+                    apple.transform.localPosition = spawnpoints[i];
+                }
+                isRunning = false;  
+
+           
+
         }
     }
     
