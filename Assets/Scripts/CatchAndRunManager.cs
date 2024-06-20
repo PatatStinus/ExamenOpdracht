@@ -30,4 +30,24 @@ public class CatchAndRunManager : MinigameParent
         }
     }
 
+    protected override void EndGame()
+    {
+        base.EndGame();
+
+        int hardestHit = 0;
+        float speedHit = (Players[0] as ConstantRun).HardestHitSpeed;
+
+        for (int i = 1; i < Players.Count; i++)
+        {
+            if ((Players[i] as ConstantRun).HardestHitSpeed > (Players[hardestHit] as ConstantRun).HardestHitSpeed)
+            {
+                hardestHit = i;
+                speedHit = (Players[i] as ConstantRun).HardestHitSpeed;
+            }
+        }
+
+        Stats.PlayerHardestTree = hardestHit;
+        Stats.SpeedTreeHit = speedHit;
+    }
+
 }

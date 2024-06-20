@@ -9,6 +9,8 @@ public class ConstantRun : PlayerMovement
     [SerializeField] private bool _constantRunIsPressed;
     private bool isRunning;
     public GameObject Apples;
+    public float HardestHitSpeed { get { return _hardestHitSpeed; } }
+    private float _hardestHitSpeed = 0;
     
     [SerializeField] private List <Vector3> spawnpoints = new List<Vector3>();
 
@@ -24,20 +26,23 @@ public class ConstantRun : PlayerMovement
            
              int applesToInstantiate = 0;
 
+            if(_moveSpeed > _hardestHitSpeed)
+                _hardestHitSpeed = _moveSpeed;
+
                 // Determine number of apples to instantiate based on _moveSpeed
-                if (_moveSpeed >= 13)
+                if (_moveSpeed >= 23)
                 {
                     applesToInstantiate = 5;
                 }
-                else if (_moveSpeed >= 11)
+                else if (_moveSpeed >= 20)
                 {
                     applesToInstantiate = 4;
                 }
-                else if (_moveSpeed >= 9)
+                else if (_moveSpeed >= 15)
                 {
                     applesToInstantiate = 3;
                 }
-                else if (_moveSpeed >= 7)
+                else if (_moveSpeed >= 10)
                 {
                     applesToInstantiate = 2;
                 }
@@ -106,7 +111,11 @@ public class ConstantRun : PlayerMovement
         Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 3f * Time.deltaTime);
 
-        if (isRunning) moveVertical = 0;
+        if (isRunning)
+        {
+            moveHorizontal = 0;
+            moveVertical = 0;
+        }
         movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
         transform.Translate(movement, Space.World);
     }
@@ -119,9 +128,9 @@ public class ConstantRun : PlayerMovement
             Vector3 forward = transform.forward * _moveSpeed * Time.deltaTime;
             transform.Translate(forward, Space.World);
             _moveSpeed += _scaleSpeed * Time.deltaTime;
-            if (_moveSpeed >= 15f)
+            if (_moveSpeed >= 25f)
             {
-                _moveSpeed = 15f; 
+                _moveSpeed = 25f; 
             }
 
             yield return null; 

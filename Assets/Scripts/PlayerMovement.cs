@@ -17,11 +17,15 @@ public class PlayerMovement : MonoBehaviour
     protected string horizontalAxis;
     protected string verticalAxis;
 
+    private Rigidbody rb;
+
+    private bool _waitingForStart = true;
+    private Vector3 _orgPos;
    
 
-    void Start()
+    IEnumerator Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
         if (PlayerType == Players.PlayerOne)
         {
             verticalAxis = "Vertical player1";
@@ -42,6 +46,25 @@ public class PlayerMovement : MonoBehaviour
             verticalAxis = "Vertical player4";
             horizontalAxis = "Horizontal player4";
         }
+
+        _orgPos = transform.position;
+        float time = 0;
+        while (time < 3)
+        {
+            time += Time.deltaTime;
+            transform.position = _orgPos;
+            yield return null;
+        }
+
+        _waitingForStart = false;
+    }
+
+    private void Update()
+    {
+        if (!isOut && !_waitingForStart)
+            _orgPos = transform.position;
+        if(isOut)
+            transform.position = _orgPos;
     }
 
     void FixedUpdate()
