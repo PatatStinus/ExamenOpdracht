@@ -17,9 +17,15 @@ public class MinigameParent : MonoBehaviour
 
     public SaveScores SaveData;
 
+    private string[] _characterNames = new string[4];
+
     private void Awake()
     {
         Score = new int[4];
+        _characterNames[0] = "Bull";
+        _characterNames[1] = "Cow";
+        _characterNames[2] = "Goat";
+        _characterNames[3] = "Horse";
     }
 
     protected virtual void Update()
@@ -84,7 +90,7 @@ public class MinigameParent : MonoBehaviour
                 if (index >= 10) return;
 
                 SaveData.MudBathScores.score.Insert(index, Score[j]);
-                SaveData.MudBathScores.name.Insert(index, "PlaceHolder");
+                SaveData.MudBathScores.name.Insert(index, _characterNames[j]);
                 SaveData.SaveToJson();
             }
         }
@@ -110,7 +116,7 @@ public class MinigameParent : MonoBehaviour
                 if (index >= 10) return;
 
                 SaveData.AnimalBoxingScores.score.Insert(index, Score[j]);
-                SaveData.AnimalBoxingScores.name.Insert(index, "PlaceHolder");
+                SaveData.AnimalBoxingScores.name.Insert(index, _characterNames[j]);
                 SaveData.SaveToJson();
             }
         }
@@ -136,7 +142,7 @@ public class MinigameParent : MonoBehaviour
                 if (index >= 10) return;
 
                 SaveData.RunAndCatchScores.score.Insert(index, Score[j]);
-                SaveData.RunAndCatchScores.name.Insert(index, "PlaceHolder");
+                SaveData.RunAndCatchScores.name.Insert(index, _characterNames[j]);
                 SaveData.SaveToJson();
             }
         }
