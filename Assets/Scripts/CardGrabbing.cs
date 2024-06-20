@@ -11,13 +11,53 @@ public class CardGrabbing : MonoBehaviour
     [SerializeField] private LayerMask _cardLayer;
     [SerializeField] private Transform _desiredCardPos;
     [SerializeField] private List<Text> _scoreText;
+    [SerializeField] private List<Card> _cards;
     private int _sceneIndex;
+    public static List<bool> PlayedGames = new List<bool>();
+    private bool _endGame = true;
 
     private void Awake()
     {
         Cursor.visible = false;
         for (int i = 0; i < _scoreText.Count; i++)
             _scoreText[i].text = TotalScores.Scores[i].ToString();
+
+        if(PlayedGames.Count < 3)
+        {
+            PlayedGames.Add(false);
+            PlayedGames.Add(false);
+            PlayedGames.Add(false);
+        }
+
+        //Randomize de kaarten
+        int n = _cards.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            var value = _cards[k];
+            _cards[k] = _cards[n];
+            _cards[n] = value;
+        }
+
+        _cards[0].CardType = Card.Cards.MudRunner;
+        _cards[1].CardType = Card.Cards.CatchAndRun;
+        _cards[2].CardType = Card.Cards.AnimalBoxing;
+
+        for (int i = 0; i < _cards.Count; i++)
+        {
+            if (PlayedGames[i])
+                Destroy(_cards[i].gameObject);
+
+            //Als alle games gespeeld zijn, eindig de game
+            if (!PlayedGames[i])
+                _endGame = false;
+        }
+
+        if(_endGame)
+        {
+            //End de game
+        }
     }
 
     private void Update()
@@ -55,11 +95,20 @@ public class CardGrabbing : MonoBehaviour
                 //Check welke kaarttype opgepakt is.
                 Card card = hit.transform.GetComponent<Card>();
                 if (card.CardType == Card.Cards.MudRunner)
+                {
                     _sceneIndex = 2;
+                    PlayedGames[0] = true;
+                }
                 else if (card.CardType == Card.Cards.CatchAndRun)
+                {
                     _sceneIndex = 3;
+                    PlayedGames[1] = true;
+                }
                 else if (card.CardType == Card.Cards.AnimalBoxing)
+                {
                     _sceneIndex = 4;
+                    PlayedGames[2] = true;
+                }
 
                 //Start animatie om kaart te laten zien
                 StartCoroutine(ShowCard(hit.transform.gameObject));

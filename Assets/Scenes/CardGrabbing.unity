@@ -1001,6 +1001,10 @@ MonoBehaviour:
   - {fileID: 1091872650}
   - {fileID: 2116627278}
   - {fileID: 296427680}
+  _cards:
+  - {fileID: 655227185}
+  - {fileID: 404619509}
+  - {fileID: 1580013824}
 --- !u!114 &1560915898
 MonoBehaviour:
   m_ObjectHideFlags: 0
