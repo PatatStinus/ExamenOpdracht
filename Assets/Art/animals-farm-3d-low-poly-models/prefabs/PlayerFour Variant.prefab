@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2335939788091896698
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.34349576
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.93915427
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -139.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 734356859416538093, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321646292602815685, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerFour Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218423231237449387, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_Drag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218423231237449387, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596405762177265651, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd587ffe70e1e1740a65ea70b5533807, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3321646292602815685, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4287574052764475840}
+  m_SourcePrefab: {fileID: 100100000, guid: fb4961d08f54c4d44b88db3cf394fd34, type: 3}
+--- !u!1 &1040955384396691391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3321646292602815685, guid: fb4961d08f54c4d44b88db3cf394fd34,
+    type: 3}
+  m_PrefabInstance: {fileID: 2335939788091896698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4287574052764475840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040955384396691391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c034e3d9ec193049b44e73c0824e072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 5
+  PlayerType: 3
+  isOut: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  dashSpeed: 20
+  dashDuration: 0.2
