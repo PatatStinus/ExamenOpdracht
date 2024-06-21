@@ -9,7 +9,7 @@ public class Dash: PlayerMovement
     [SerializeField]private LayerMask playerLayer;
     public float dashSpeed = 20f;        
     public float dashDuration = 0.2f;
-
+    public BoxCollider box;
     private AnimalBoxingManager _manager;
 
     private void Awake()
@@ -86,5 +86,9 @@ public class Dash: PlayerMovement
     {
         if (_HasDashed && collision.gameObject.TryGetComponent(out PlayerMovement hitPlayer))
             _manager.PlayerHit(this, hitPlayer);
+        if (collision.gameObject == box && _HasDashed)
+        {
+            _HasDashed = false;
+        }
     }
 }
