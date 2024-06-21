@@ -69,7 +69,7 @@ public class ConstantRun : PlayerMovement
     {
         if (PlayerType == Players.PlayerOne)
         { 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && isRunning == false)
             {
                 StartCoroutine(Run());
             }
@@ -77,7 +77,7 @@ public class ConstantRun : PlayerMovement
         }
         if (PlayerType == Players.PlayerTwo)
         {   
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2") && isRunning == false)
             {
                 StartCoroutine(Run());
             }
@@ -85,7 +85,7 @@ public class ConstantRun : PlayerMovement
         }
         if (PlayerType == Players.PlayerThree)
         {
-             if (Input.GetButtonDown("Fire3"))
+             if (Input.GetButtonDown("Fire3") && isRunning == false)
              {
                  StartCoroutine(Run());
              }
@@ -93,7 +93,7 @@ public class ConstantRun : PlayerMovement
         }
         if (PlayerType == Players.PlayerFour)
         {     
-            if (Input.GetButtonDown("Fire4"))
+            if (Input.GetButtonDown("Fire4") && isRunning == false)
             {
                  StartCoroutine(Run());
             }
@@ -122,19 +122,24 @@ public class ConstantRun : PlayerMovement
 
     IEnumerator Run()
     {
-        isRunning = true;
-        while (isRunning)
-        {
-            Vector3 forward = transform.forward * _moveSpeed * Time.deltaTime;
-            transform.Translate(forward, Space.World);
-            _moveSpeed += _scaleSpeed * Time.deltaTime;
-            if (_moveSpeed >= 25f)
+          isRunning = true;
+         
+            while (isRunning)
             {
-                _moveSpeed = 25f; 
-            }
+                Vector3 forward = transform.forward * _moveSpeed * Time.deltaTime;
+                transform.Translate(forward, Space.World);
+                _moveSpeed += _scaleSpeed * Time.deltaTime;
+                if (_moveSpeed >= 25f)
+                {
+                    _moveSpeed = 25f; 
+                }
 
-            yield return null; 
-        }
+                yield return null; 
+            }
+            isRunning = false;
+
+        
+       
     }
 
 }

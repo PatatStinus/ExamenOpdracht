@@ -54,31 +54,27 @@ public class Dash: PlayerMovement
     }
     private IEnumerator PerformDash()
     {
-        _HasDashed = true;  
+        _HasDashed = true;
+        _DashCooldown = 1f;  // Set cooldown at the beginning
 
-        
         Vector3 dashDirection = transform.forward;
         float startTime = 0;
 
-        //in deze loop word een hoevang de dash duurd
-        while ( startTime <= dashDuration)
+        while (startTime <= dashDuration)
         {
             startTime += Time.deltaTime;
-            // Move de player in de dash richting.
             transform.position += dashDirection * dashSpeed * Time.deltaTime;
-            yield return null; 
+            yield return null;
         }
         _HasDashed = false;
-
-        _DashCooldown = 0.5f;
 
         while (_DashCooldown > 0)
         {
             _DashCooldown -= Time.deltaTime;
             yield return null;
         }
-
         _DashCooldown = 0;
+
     }
 
     private void OnCollisionEnter(Collision collision)
