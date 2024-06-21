@@ -320,6 +320,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5551305028058455629, guid: e6176d3414d3045468732ba5fab9f39a,
+        type: 3}
+      propertyPath: m_Drag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551305028058455629, guid: e6176d3414d3045468732ba5fab9f39a,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6778669256125563828, guid: e6176d3414d3045468732ba5fab9f39a,
         type: 3}
       propertyPath: m_Name
@@ -487,6 +497,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569891149154123353, guid: e2981d2a72c86ae4bb1558a7b59b2cfd,
+        type: 3}
+      propertyPath: m_Drag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569891149154123353, guid: e2981d2a72c86ae4bb1558a7b59b2cfd,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -859,6 +879,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211101914978090187, guid: e8a69bf2519cf9248b2d0a529b437593,
+        type: 3}
+      propertyPath: m_Drag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211101914978090187, guid: e8a69bf2519cf9248b2d0a529b437593,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5235491975068542023, guid: e8a69bf2519cf9248b2d0a529b437593,
         type: 3}
@@ -1372,6 +1402,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218423231237449387, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_Drag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218423231237449387, guid: fb4961d08f54c4d44b88db3cf394fd34,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
