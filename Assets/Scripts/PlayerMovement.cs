@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Start()
     {
+        //input voor de 4 players
+
         rb = GetComponent<Rigidbody>();
         if (PlayerType == Players.PlayerOne)
         {
@@ -75,8 +77,11 @@ public class PlayerMovement : MonoBehaviour
 
     public virtual void MovePlayer()
     {
+        // de input voor horizontal en vertical
         float moveHorizontal = Input.GetAxis(horizontalAxis);
         float moveVertical = Input.GetAxis(verticalAxis);
+        
+        //de movement berekenen
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * _moveSpeed * Time.deltaTime;
         transform.Translate(movement, Space.World);
 
